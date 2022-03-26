@@ -1,0 +1,60 @@
+# This code is for game number 7, which is we have several coins and 2 players each one chooses a number that has
+# a square root and is less than the number of coins then minus the chosen number from the number of coins.
+# The first player who makes the number of coins = 0 wins.
+# By : Youstena Wahba Gabra
+
+
+coins = 21
+list = ["1", "4", "9", "16"]
+
+
+def player1():
+    global coins
+# Get number of coins the player wants to play
+    num1 = input("player1 please enter your number: ")
+# Check the input is a digit or not
+    while num1 not in list or num1.isdigit() == False:
+        print("invalid input please try again")
+# Repeat until a valid move is entered
+        num1 = input("player1 please enter your number: ")
+# Make the input an integer so that it can be subtracted from the number of coins
+    num1 = int(num1)
+    coins -= num1
+# Update number of coins after taking some coins
+    print("Remaining coins = ", coins)
+    return coins
+
+
+def player2():
+    global coins
+# Get number of coins the player wants to play
+    num2 = input("player2 please enter your number: ")
+# Check the input is a digit or not
+    while num2 not in list or num2.isdigit() == False:
+        print("invalid input please try again")
+# Repeat until a valid move is entered
+        num2 = input("player2 please enter your number :")
+# Make the input an integer so that it can be subtracted from the number of coins
+    num2 = int(num2)
+    coins -= num2
+# Update number of coins after taking some coins
+    print("Remaining coins = ", coins)
+    return coins
+
+
+def winner():
+# Check the number of coins if equal zero to end the game
+    if coins == 0:
+        return True
+
+
+while True:
+# Check if he is taking the last coin and WINES
+    player1()
+    if winner():
+        print("Player1 Wins!")
+        break
+    player2()
+    if winner():
+        print("player2 Wins!")
+        break
